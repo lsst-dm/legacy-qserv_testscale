@@ -15,8 +15,13 @@ function mysql_query {
 
     ssh "$master" "docker exec '$container' bash -c '. /qserv/stack/loadLSST.bash && \
         setup mariadb && \
+		start=\$(date +%s.%N) && \
         mysql -N -B --host \"$master\" --port $port \
-        --user=$user $db -e \"$sql\"'"
+        --user=$user $db -e \"$sql\" && \
+		end=\$(date +%s.%N) &&
+		echo \"Execution time: \$(python -c \"print(\${end} - \${start})\")\"'"
+
+	runtime=$((end-start))
 
     echo
     if [ -n "$sleep_delay" ]; then
