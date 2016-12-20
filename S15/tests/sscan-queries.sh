@@ -4,12 +4,14 @@
 # See https://confluence.lsstcorp.org/display/DM/S15+Large+Scale+Tests
 # @author Fabrice Jammes IN2P3
 
+set -x
+
 DIR=$(cd "$(dirname "$0")"; pwd -P)
 
 . "$DIR/env.sh"
 
-export -f mysql_query 
 export MASTER
+export -f mysql_query 
 
 echo "SHARED SCANS"
 echo "------------"

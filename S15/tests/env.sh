@@ -4,19 +4,19 @@ if [ -z "$MASTER" ]; then
 fi
 
 function mysql_query {
-    master="$1"
-    sql="$2"
-    sleep_delay="$3"
+    sql="$1"
+    sleep_delay="$2"
 
     user="qsmaster"
     db="LSST"
     container="qserv"
 	port=4040
 
-    ssh "$master" "docker exec '$container' bash -c '. /qserv/stack/loadLSST.bash && \
+	echo "Query: $sql"
+    ssh "$MASTER" "docker exec '$container' bash -c '. /qserv/stack/loadLSST.bash && \
         setup mariadb && \
 		start=\$(date +%s.%N) && \
-        mysql -N -B --host \"$master\" --port $port \
+        mysql -N -B --host \"$MASTER\" --port $port \
         --user=$user $db -e \"$sql\" && \
 		end=\$(date +%s.%N) &&
 		echo \"Execution time: \$(python -c \"print(\${end} - \${start})\")\"'"
@@ -28,3 +28,4 @@ function mysql_query {
         sleep "$sleep_delay"
     fi
 }
+
