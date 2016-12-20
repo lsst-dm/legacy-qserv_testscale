@@ -12,10 +12,10 @@ echo "COUNTS"
 echo "------"
 echo
 SQL="SELECT count(*) FROM Object"
-mysql_query "$MASTER" "$SQL"
+mysql_query "$SQL"
 
 SQL="SELECT count(*) FROM Source"
-mysql_query "$MASTER" "$SQL"
+mysql_query "$SQL"
 
 SQL="SELECT count(*) FROM ForcedSource"
-mysql_query "$MASTER" "$SQL"
+mysql_query "$SQL"
