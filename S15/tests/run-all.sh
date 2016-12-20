@@ -12,7 +12,6 @@ set -x
 DIR=$(cd "$(dirname "$0")"; pwd -P)
 
 MASTER=$(hostname)
-OUT_DIR="/tmp/qserv"
 
 usage() {
   cat << EOD
@@ -22,7 +21,7 @@ usage() {
   Available options:
     -h          this message
     -M          Hostname for Qserv master, default to \$hostname 
-    -O          Output directory, default to /tmp/S15
+    -O          Output directory, default to $DIR/out/<master> 
 
   Launch a set of SQL queries against S15 Large Scale Tests dataset.
 
@@ -45,6 +44,7 @@ if [ $# -ne 0 ] ; then
     exit 2
 fi
 
+OUT_DIR="$DIR/out/$MASTER/"
 mkdir -p "$OUT_DIR"
 
 export MASTER
