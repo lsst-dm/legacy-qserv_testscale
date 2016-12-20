@@ -48,8 +48,13 @@ fi
 mkdir -p "$OUT_DIR"
 
 export MASTER
+. "${DIR}/env.sh"
+
+mysql_query "$MASTER" "SET profiling = 1;"
 
 "$DIR"/short-queries.sh >& "$OUT_DIR/short.out"
-"$DIR"/count-queries.sh >& "$OUT_DIR/count.out"
-"$DIR"/long-queries.sh >& "$OUT_DIR/long.out"
-"$DIR"/sscan-queries.sh >& "$OUT_DIR/sscan.out"
+#"$DIR"/count-queries.sh >& "$OUT_DIR/count.out"
+#"$DIR"/long-queries.sh >& "$OUT_DIR/long.out"
+#"$DIR"/sscan-queries.sh >& "$OUT_DIR/sscan.out"
+
+mysql_query "$MASTER" "SHOW PROFILES;" >& "$OUT_DIR/results.out"
