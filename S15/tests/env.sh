@@ -3,6 +3,9 @@ if [ -z "$MASTER" ]; then
 	exit 1
 fi
 
+# Parallel invokes the shell indicated by the SHELL environment variable
+export SHELL=$(type -p bash)
+
 function mysql_query {
     sql="$1"
     sleep_delay="$2"
