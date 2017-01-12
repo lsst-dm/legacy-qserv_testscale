@@ -20,7 +20,7 @@ SQL="SELECT TABLE_NAME FROM information_schema.tables WHERE TABLE_SCHEMA='$DB' \
      AND TABLE_NAME LIKE 'Object\_%' AND TABLE_ROWS>0"
 TABLES=$(docker exec $CONTAINER \
 	bash -c ". /qserv/stack/loadLSST.bash && \
-	setup mariadb && \
+	setup mariadbclient && \
 	mysql -N -B --socket $SOCKET \
 	--user=$USER $DB -e \"$SQL\"")
 echo "tables: \"$TABLES\""
@@ -39,7 +39,7 @@ SQL="${SQL}) o;"
 
 RESULTS=$(docker exec "$CONTAINER" \
 	bash -c ". /qserv/stack/loadLSST.bash && \
-	setup mariadb && \
+	setup mariadbclient && \
 	mysql -N -B --socket $SOCKET \
 	--user=$USER $DB -e \"$SQL"\")
 echo "result: \"$RESULTS\""
@@ -50,7 +50,7 @@ echo "result: \"$RESULTS\""
 #    TABLE_SCHEMA='$DB' AND TABLE_NAME='$t'"
 #    RESULTS=$(docker exec "$CONTAINER" \
 #	bash -c ". /qserv/stack/loadLSST.bash && \
-#	setup mariadb && \
+#	setup mariadbclient && \
 #	mysql -N -B --socket $SOCKET \
 #	--user=$USER $DB -e \"$SQL"\")
 #    echo "result_diff: \"$RESULTS\""

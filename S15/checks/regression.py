@@ -35,7 +35,6 @@ from __future__ import print_function
 import argparse
 import logging
 import os
-from sets import Set
 import shutil
 import subprocess
 import yaml
@@ -101,8 +100,7 @@ def main():
     logging.debug("Chunk queries results files (per node): %s", outfiles)
 
     chunk_results = []
-    chunk_results_infoschema = []
-    chunk_tables = Set()
+    chunk_tables = set()
     for f in outfiles.split():
         with open(f, 'r') as stream:
             r = yaml.safe_load(stream)
@@ -117,7 +115,8 @@ def main():
                 chunk_tables.add(t)
         chunk_results.append(r['result'])
 
-    logging.debug("Chunk tables: %s, size: %s", chunk_tables, len(chunk_tables))
+    logging.debug("Chunk tables: %s, size: %s",
+                  chunk_tables, len(chunk_tables))
     logging.debug("Chunk results: %s", chunk_results)
     r = map(int, chunk_results)
     res = sum(r)

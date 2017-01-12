@@ -10,8 +10,8 @@ set -e
 set -x
 
 DIR=$(cd "$(dirname "$0")"; pwd -P)
-
 MASTER=$(hostname)
+OUT_DIR="$DIR/out/$MASTER/"
 
 usage() {
   cat << EOD
@@ -44,7 +44,6 @@ if [ $# -ne 0 ] ; then
     exit 2
 fi
 
-OUT_DIR="$DIR/out/$MASTER/"
 mkdir -p "$OUT_DIR"
 
 export MASTER
