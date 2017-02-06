@@ -1,0 +1,98 @@
++++ dirname /home/fjammes/tmp/qserv_testscale/S15/tests/sscan-queries.sh
+++ cd /home/fjammes/tmp/qserv_testscale/S15/tests
+++ pwd -P
++ DIR=/home/fjammes/tmp/qserv_testscale/S15/tests
++ . /home/fjammes/tmp/qserv_testscale/S15/tests/env.sh
+++ '[' -z qserv-ceph-master-1 ']'
++++ type -p bash
+++ export SHELL=/bin/bash
+++ SHELL=/bin/bash
++ export MASTER
++ export -f mysql_query
++ echo 'SHARED SCANS'
+SHARED SCANS
++ echo ------------
+------------
++ echo 'Two scans on Object. Startup was staggered.'
+Two scans on Object. Startup was staggered.
++ echo
+
++ SQL1='SELECT COUNT(*) FROM Object WHERE y_instFlux > 5'
++ SQL2='SELECT MIN(ra), MAX(ra) FROM Object WHERE decl > 3'
++ parallel --delay 5 mysql_query ::: 'SELECT COUNT(*) FROM Object WHERE y_instFlux > 5' 'SELECT MIN(ra), MAX(ra) FROM Object WHERE decl > 3'
+Query: SELECT COUNT(*) FROM Object WHERE y_instFlux > 5
+
+Write failed: Broken pipe
+Query: SELECT MIN(ra), MAX(ra) FROM Object WHERE decl > 3
+
+Write failed: Broken pipe
++ echo 'Five scans on Object. Startup was staggered.'
+Five scans on Object. Startup was staggered.
++ echo
+
++ SQL1='SELECT MIN(ra), MAX(ra) FROM Object WHERE decl > 3'
++ SQL3='SELECT COUNT(*) FROM Object WHERE y_instFlux > u_instFlux'
++ SQL4='SELECT COUNT(*) FROM Object WHERE y_instFlux > 5'
++ SQL5='SELECT MIN(ra), MAX(ra) FROM Object WHERE z_apFlux BETWEEN 1 and 2'
++ parallel --delay 5 mysql_query ::: 'SELECT MIN(ra), MAX(ra) FROM Object WHERE decl > 3' 'SELECT MIN(ra), MAX(ra) FROM Object WHERE decl > 3' 'SELECT COUNT(*) FROM Object WHERE y_instFlux > u_instFlux' 'SELECT COUNT(*) FROM Object WHERE y_instFlux > 5' 'SELECT MIN(ra), MAX(ra) FROM Object WHERE z_apFlux BETWEEN 1 and 2'
+Query: SELECT MIN(ra), MAX(ra) FROM Object WHERE decl > 3
+
+Write failed: Broken pipe
+Query: SELECT MIN(ra), MAX(ra) FROM Object WHERE decl > 3
+
+Write failed: Broken pipe
+Query: SELECT COUNT(*) FROM Object WHERE y_instFlux > u_instFlux
+
+Write failed: Broken pipe
+Query: SELECT COUNT(*) FROM Object WHERE y_instFlux > 5
+
+Write failed: Broken pipe
+Query: SELECT MIN(ra), MAX(ra) FROM Object WHERE z_apFlux BETWEEN 1 and 2
+
+Write failed: Broken pipe
++ echo 'Five scans on Object, without staggering.'
+Five scans on Object, without staggering.
++ echo
+
++ SQL1='SELECT COUNT(*) FROM Object WHERE y_instFlux > 5'
++ SQL2='SELECT MIN(ra), MAX(ra) FROM Object WHERE decl > 3'
++ SQL5='SELECT COUNT(*) AS n, AVG(ra), AVG(decl), chunkId FROM Object GROUP BY chunkId'
++ parallel --delay 5 mysql_query ::: 'SELECT COUNT(*) FROM Object WHERE y_instFlux > 5' 'SELECT MIN(ra), MAX(ra) FROM Object WHERE decl > 3' 'SELECT COUNT(*) FROM Object WHERE y_instFlux > 5' 'SELECT COUNT(*) FROM Object WHERE y_instFlux > 5' 'SELECT COUNT(*) AS n, AVG(ra), AVG(decl), chunkId FROM Object GROUP BY chunkId'
+Query: SELECT COUNT(*) FROM Object WHERE y_instFlux > 5
+
+Write failed: Broken pipe
+Query: SELECT MIN(ra), MAX(ra) FROM Object WHERE decl > 3
+
+Write failed: Broken pipe
+Query: SELECT COUNT(*) FROM Object WHERE y_instFlux > 5
+
+Write failed: Broken pipe
+Query: SELECT COUNT(*) FROM Object WHERE y_instFlux > 5
+
+Write failed: Broken pipe
+Query: SELECT COUNT(*) AS n, AVG(ra), AVG(decl), chunkId FROM Object GROUP BY chunkId
+
+Write failed: Broken pipe
++ echo 'Five scans: four on Object, one on Source'
+Five scans: four on Object, one on Source
++ echo
+
++ SQL1='SELECT MIN(ra), MAX(ra) FROM Object WHERE decl > 3'
++ SQL2='SELECT COUNT(*) FROM Object WHERE y_instFlux > 5'
++ SQL5='SELECT COUNT(*) FROM Source WHERE flux_sinc BETWEEN 1 AND 2'
++ parallel mysql_query ::: 'SELECT MIN(ra), MAX(ra) FROM Object WHERE decl > 3' 'SELECT COUNT(*) FROM Object WHERE y_instFlux > 5' 'SELECT COUNT(*) FROM Object WHERE y_instFlux > 5' 'SELECT COUNT(*) FROM Object WHERE y_instFlux > 5' 'SELECT COUNT(*) FROM Source WHERE flux_sinc BETWEEN 1 AND 2'
+Query: SELECT MIN(ra), MAX(ra) FROM Object WHERE decl > 3
+
+Write failed: Broken pipe
+Query: SELECT COUNT(*) FROM Object WHERE y_instFlux > 5
+
+Write failed: Broken pipe
+Query: SELECT COUNT(*) FROM Object WHERE y_instFlux > 5
+
+Write failed: Broken pipe
+Query: SELECT COUNT(*) FROM Object WHERE y_instFlux > 5
+
+Write failed: Broken pipe
+Query: SELECT COUNT(*) FROM Source WHERE flux_sinc BETWEEN 1 AND 2
+
+Write failed: Broken pipe

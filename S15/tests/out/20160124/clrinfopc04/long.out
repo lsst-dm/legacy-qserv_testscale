@@ -1,0 +1,29 @@
+FULL TABLE SCANS
+----------------
+Full table scan, use some column in WHERE that is not indexed, make sure the number of results returned is sane (eg thousands, not millions)
+
+Query: SELECT COUNT(*)  FROM Object WHERE y_instFlux > 5
+0
+Execution time: 1572.71749282
+
+Query: select min(ra), max(ra), min(decl), max(decl) from Object;
+0	359.9999999211987	-89.99809985317125	45.529411709640144
+Execution time: 1511.13170815
+
+Query: select count(*) from Source where flux_sinc between 1 and 2;
+Write failed: Broken pipe
+
+Query: select count(*) from Source where flux_sinc between 2 and 3;
+Write failed: Broken pipe
+
+Query: select count(*) from ForcedSource where psfFlux between 0.1 and 0.2;
+Write failed: Broken pipe
+
+JOINS
+-----
+Query: select count(*) from Object o, Source s WHERE o.deepSourceId=s.objectId AND s.flux_sinc BETWEEN 0.13 AND 0.14;
+Write failed: Broken pipe
+
+Query: select count(*) FROM Object o, ForcedSource f WHERE o.deepSourceId=f.deepSourceId AND f.psfFlux BETWEEN 0.13 AND 0.14;
+Write failed: Broken pipe
+
