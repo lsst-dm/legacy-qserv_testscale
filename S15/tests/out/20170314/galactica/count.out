@@ -1,0 +1,21 @@
+COUNTS
+------
+
+Query: SELECT count(*) FROM Object
+Date: lundi 13 mars 2017, 12:29:51 (UTC+0100)
+474357250
+Execution time: 9.50867199898
+Date: lundi 13 mars 2017, 12:30:02 (UTC+0100)
+
+Query: SELECT count(*) FROM Source
+Date: lundi 13 mars 2017, 12:30:02 (UTC+0100)
+8767148719
+Execution time: 8.71868848801
+Date: lundi 13 mars 2017, 12:30:12 (UTC+0100)
+
+Query: SELECT count(*) FROM ForcedSource
+Date: lundi 13 mars 2017, 12:30:12 (UTC+0100)
+43188827094
+Execution time: 10.040864706
+Date: lundi 13 mars 2017, 12:30:24 (UTC+0100)
+

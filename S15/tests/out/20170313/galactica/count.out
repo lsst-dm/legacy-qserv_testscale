@@ -1,0 +1,15 @@
+COUNTS
+------
+
+Query: SELECT count(*) FROM Object
+1889695615
+Execution time: 32.8355309963
+
+Query: SELECT count(*) FROM Source
+34886017763
+Execution time: 32.3034071922
+
+Query: SELECT count(*) FROM ForcedSource
+172081115270
+Execution time: 34.8430557251
+
