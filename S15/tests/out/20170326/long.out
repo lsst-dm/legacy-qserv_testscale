@@ -1,0 +1,55 @@
+FULL TABLE SCANS
+----------------
+Full table scan, use some column in WHERE that is not indexed, make sure the number of results returned is sane (eg thousands, not millions)
+
+Query: SELECT COUNT(*)  FROM Object WHERE y_instFlux > 5
+Date: 2017-03-25_22:03:40
+0
+Execution time: 436.894334555 sec
+Date: 2017-03-25_22:10:58
+
+Query: select min(ra), max(ra), min(decl), max(decl) from Object;
+Date: 2017-03-25_22:10:58
+0	359.9999999211987	-89.99809985317125	45.529411709640144
+Execution time: 450.819008589 sec
+Date: 2017-03-25_22:18:30
+
+Query: select count(*) from Source where flux_sinc between 1 and 2;
+Date: 2017-03-25_22:18:30
+3539300
+Execution time: 4677.62308526 sec
+Date: 2017-03-25_23:36:29
+
+Query: select count(*) from Source where flux_sinc between 2 and 3;
+Date: 2017-03-25_23:36:29
+3589961
+Execution time: 4637.91959214 sec
+Date: 2017-03-26_00:53:49
+
+Query: select count(*) from ForcedSource where psfFlux between 0.1 and 0.2;
+Date: 2017-03-26_00:53:49
+67769638
+Execution time: 1101.90960789 sec
+Date: 2017-03-26_01:12:12
+
+FULL TABLE SCANS
+----------------
+Full table scan, use some column in WHERE that is not indexed, make sure the
+number of results returned is sane (eg thousands, not millions)
+
+JOINS
+-----
+Query: select count(*) from Object o, Source s WHERE o.deepSourceId=s.objectId
+AND s.flux_sinc BETWEEN 0.13 AND 0.14;
+Date: 2017-03-26_18:34:17
+
+
+ERROR 1146 (42S02) at line 1: Table 'qservResult.result_480775' doesn't exist
+Date: 2017-03-27_02:34:18
+
+Query: select count(*) FROM Object o, ForcedSource f WHERE
+o.deepSourceId=f.deepSourceId AND f.psfFlux BETWEEN 0.13 AND 0.14;
+Date: 2017-03-27_02:34:18
+6749369
+Execution time: 24654.4245439 sec
+Date: 2017-03-27_09:25:14

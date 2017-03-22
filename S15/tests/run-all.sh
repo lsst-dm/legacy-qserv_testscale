@@ -10,8 +10,8 @@ set -e
 set -x
 
 DIR=$(cd "$(dirname "$0")"; pwd -P)
-MASTER=$(hostname)
-OUT_DIR="$DIR/out/$MASTER/"
+CLIENT_NODE=$(hostname)
+OUT_DIR="$DIR/out/$(hostname)"
 
 usage() {
   cat << EOD
@@ -20,8 +20,13 @@ usage() {
 
   Available options:
     -h          this message
-    -M          Hostname for Qserv master, default to \$hostname 
-    -O          Output directory, default to $DIR/out/<master> 
+    -K          Launch against a Kubernetes-managed cluster
+                instead of a shmux-managed one
+    -M          Hostname for node enabling access to Qserv client 
+                i.e. node running Qserv master container in shmux mode
+                and kubernetes master in kubernetes mode,
+                default to \$hostname 
+    -O          Output directory, default to $DIR/out/<hostname>
 
   Launch a set of SQL queries against S15 Large Scale Tests dataset.
 
@@ -29,10 +34,11 @@ EOD
 }
 
 # get the options
-while getopts hM:O: c ; do
+while getopts hKM:O: c ; do
     case $c in
         h) usage ; exit 0 ;;
-        M) MASTER="$OPTARG" ;;
+        K) KUBE=true ;;
+        M) CLIENT_NODE="$OPTARG" ;;
         O) OUT_DIR="$OPTARG" ;;
         \?) usage ; exit 2 ;;
     esac
@@ -46,8 +52,8 @@ fi
 
 mkdir -p "$OUT_DIR"
 
-export MASTER
-. "${DIR}/env.sh"
+export KUBE 
+export CLIENT_NODE 
 
 "$DIR"/short-queries.sh >& "$OUT_DIR/short.out"
 "$DIR"/count-queries.sh >& "$OUT_DIR/count.out"
