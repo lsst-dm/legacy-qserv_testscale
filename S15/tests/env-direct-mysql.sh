@@ -21,9 +21,10 @@ function mysql_query {
     user="qsmaster"
     db="LSST"
     port=4040
+    host=ccqserv100
 
     query_cmd="start=\$(date +%s.%N) && \
-        mysql -N -B --host \"127.0.0.1\" --port $port --user=$user $db -e \"$sql\" && \
+        mysql -N -B --host \"$host\" --port $port --user=$user $db -e \"$sql\" && \
         end=\$(date +%s.%N) && \
         echo \"Execution time: \$(python -c \"print(\${end} - \${start})\") sec\""
     
@@ -35,9 +36,9 @@ function mysql_query {
 
     echo "Query: $sql"
     echo "Date: $(date +%Y-%m-%d_%H:%M:%S)"
-    ssh $SSH_CFG_OPT "$CLIENT_NODE" "$orch_cmd -- bash -c '. /qserv/stack/loadLSST.bash && \
-        setup mariadb && \
-        $query_cmd'"
+    bash -c ". /qserv/stack/loadLSST.bash && \
+        setup mariadbclient && \
+        $query_cmd"
     echo "Date: $(date +%Y-%m-%d_%H:%M:%S)"
 
     echo
