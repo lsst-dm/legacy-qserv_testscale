@@ -1,0 +1,21 @@
+COUNTS
+------
+
+Query: SELECT count(*) FROM Object
+Date: 2017-04-26_11:13:01
+1889695615
+Execution time: 21.9960010052 sec
+Date: 2017-04-26_11:13:24
+
+Query: SELECT count(*) FROM Source
+Date: 2017-04-26_11:13:24
+34886017763
+Execution time: 22.2820129395 sec
+Date: 2017-04-26_11:13:47
+
+Query: SELECT count(*) FROM ForcedSource
+Date: 2017-04-26_11:13:47
+172081115270
+Execution time: 22.5044252872 sec
+Date: 2017-04-26_11:14:11
+
