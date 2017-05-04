@@ -18,3 +18,8 @@ Orchestrator
 ============
 
 shmux
+
+Misc
+====
+
+Statictics and my.cnf updated accordingly

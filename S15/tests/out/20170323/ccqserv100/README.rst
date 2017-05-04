@@ -17,5 +17,5 @@ Local storage for each node
 Misc
 ====
 
-Statictics updated
+Statictics updated, but not taken in account in my.cnf
 
