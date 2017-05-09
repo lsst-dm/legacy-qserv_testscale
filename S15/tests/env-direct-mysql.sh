@@ -1,8 +1,3 @@
-if [ -z "$CLIENT_NODE" ]; then
-    echo "ERROR: undefined \$CLIENT_NODE"
-    exit 1
-fi
-
 # Parallel invokes the shell indicated by the SHELL environment variable
 export SHELL=$(type -p bash)
 
@@ -28,12 +23,6 @@ function mysql_query {
         end=\$(date +%s.%N) && \
         echo \"Execution time: \$(python -c \"print(\${end} - \${start})\") sec\""
     
-    if [ -n "$KUBE" ]; then
-        orch_cmd="kubectl exec master"
-    else
-        orch_cmd="docker exec qserv"
-    fi
-
     echo "Query: $sql"
     echo "Date: $(date +%Y-%m-%d_%H:%M:%S)"
     bash -c ". /qserv/stack/loadLSST.bash && \
