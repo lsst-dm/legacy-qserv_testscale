@@ -1,0 +1,48 @@
+FULL TABLE SCANS
+----------------
+Full table scan, use some column in WHERE that is not indexed, make sure the number of results returned is sane (eg thousands, not millions)
+
+Query: SELECT COUNT(*)  FROM Object WHERE y_instFlux > 5
+Date: 2017-05-09_11:47:37
+0
+Execution time: 282.122181416 sec
+Date: 2017-05-09_11:52:20
+
+Query: select min(ra), max(ra), min(decl), max(decl) from Object;
+Date: 2017-05-09_11:52:20
+0	359.9999999211987	-89.99809985317125	45.529411709640144
+Execution time: 293.495280266 sec
+Date: 2017-05-09_11:57:14
+
+Query: select count(*) from Source where flux_sinc between 1 and 2;
+Date: 2017-05-09_11:57:14
+3539300
+Execution time: 1597.22333002 sec
+Date: 2017-05-09_12:23:52
+
+Query: select count(*) from Source where flux_sinc between 2 and 3;
+Date: 2017-05-09_12:23:52
+3589961
+Execution time: 1551.27922463 sec
+Date: 2017-05-09_12:49:44
+
+Query: select count(*) from ForcedSource where psfFlux between 0.1 and 0.2;
+Date: 2017-05-09_12:49:44
+67769638
+Execution time: 732.220076799 sec
+Date: 2017-05-09_13:01:56
+
+JOINS
+-----
+Query: select count(*) from Object o, Source s WHERE o.deepSourceId=s.objectId AND s.flux_sinc BETWEEN 0.13 AND 0.14;
+Date: 2017-05-09_13:01:56
+35179
+Execution time: 1895.74644399 sec
+Date: 2017-05-09_13:33:33
+
+Query: select count(*) FROM Object o, ForcedSource f WHERE o.deepSourceId=f.deepSourceId AND f.psfFlux BETWEEN 0.13 AND 0.14;
+Date: 2017-05-09_13:33:33
+6749369
+Execution time: 1257.48734283 sec
+Date: 2017-05-09_13:54:31
+

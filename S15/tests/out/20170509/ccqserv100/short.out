@@ -1,0 +1,334 @@
+SHORT-RUNNING QUERIES
+---------------------
+Describe object table
+Query: Describe Object
+Date: 2017-05-09_11:45:15
+deepSourceId	bigint(20)	NO	PRI	NULL	
+ra	double	NO		NULL	
+decl	double	NO		NULL	
+raVar	double	YES		NULL	
+declVar	double	YES		NULL	
+radeclCov	double	YES		NULL	
+chunkId	int(11)	NO		NULL	
+subChunkId	int(11)	NO	MUL	NULL	
+u_psfFlux	double	YES		NULL	
+u_psfFluxSigma	double	YES		NULL	
+u_apFlux	double	YES		NULL	
+u_apFluxSigma	double	YES		NULL	
+u_modelFlux	double	YES		NULL	
+u_modelFluxSigma	double	YES		NULL	
+u_instFlux	double	YES		NULL	
+u_instFluxSigma	double	YES		NULL	
+u_apCorrection	double	YES		NULL	
+u_apCorrectionSigma	double	YES		NULL	
+u_shapeIx	double	YES		NULL	
+u_shapeIy	double	YES		NULL	
+u_shapeIxVar	double	YES		NULL	
+u_shapeIyVar	double	YES		NULL	
+u_shapeIxIyCov	double	YES		NULL	
+u_shapeIxx	double	YES		NULL	
+u_shapeIyy	double	YES		NULL	
+u_shapeIxy	double	YES		NULL	
+u_shapeIxxVar	double	YES		NULL	
+u_shapeIyyVar	double	YES		NULL	
+u_shapeIxyVar	double	YES		NULL	
+u_shapeIxxIyyCov	double	YES		NULL	
+u_shapeIxxIxyCov	double	YES		NULL	
+u_shapeIyyIxyCov	double	YES		NULL	
+u_extendedness	double	YES		NULL	
+u_flagNegative	bit(1)	YES		NULL	
+u_flagBadMeasCentroid	bit(1)	YES		NULL	
+u_flagPixEdge	bit(1)	YES		NULL	
+u_flagPixInterpAny	bit(1)	YES		NULL	
+u_flagPixInterpCen	bit(1)	YES		NULL	
+u_flagPixSaturAny	bit(1)	YES		NULL	
+u_flagPixSaturCen	bit(1)	YES		NULL	
+u_flagBadPsfFlux	bit(1)	YES		NULL	
+u_flagBadApFlux	bit(1)	YES		NULL	
+u_flagBadModelFlux	bit(1)	YES		NULL	
+u_flagBadInstFlux	bit(1)	YES		NULL	
+u_flagBadCentroid	bit(1)	YES		NULL	
+u_flagBadShape	bit(1)	YES		NULL	
+g_psfFlux	double	YES		NULL	
+g_psfFluxSigma	double	YES		NULL	
+g_apFlux	double	YES		NULL	
+g_apFluxSigma	double	YES		NULL	
+g_modelFlux	double	YES		NULL	
+g_modelFluxSigma	double	YES		NULL	
+g_instFlux	double	YES		NULL	
+g_instFluxSigma	double	YES		NULL	
+g_apCorrection	double	YES		NULL	
+g_apCorrectionSigma	double	YES		NULL	
+g_shapeIx	double	YES		NULL	
+g_shapeIy	double	YES		NULL	
+g_shapeIxVar	double	YES		NULL	
+g_shapeIyVar	double	YES		NULL	
+g_shapeIxIyCov	double	YES		NULL	
+g_shapeIxx	double	YES		NULL	
+g_shapeIyy	double	YES		NULL	
+g_shapeIxy	double	YES		NULL	
+g_shapeIxxVar	double	YES		NULL	
+g_shapeIyyVar	double	YES		NULL	
+g_shapeIxyVar	double	YES		NULL	
+g_shapeIxxIyyCov	double	YES		NULL	
+g_shapeIxxIxyCov	double	YES		NULL	
+g_shapeIyyIxyCov	double	YES		NULL	
+g_extendedness	double	YES		NULL	
+g_flagNegative	bit(1)	YES		NULL	
+g_flagBadMeasCentroid	bit(1)	YES		NULL	
+g_flagPixEdge	bit(1)	YES		NULL	
+g_flagPixInterpAny	bit(1)	YES		NULL	
+g_flagPixInterpCen	bit(1)	YES		NULL	
+g_flagPixSaturAny	bit(1)	YES		NULL	
+g_flagPixSaturCen	bit(1)	YES		NULL	
+g_flagBadPsfFlux	bit(1)	YES		NULL	
+g_flagBadApFlux	bit(1)	YES		NULL	
+g_flagBadModelFlux	bit(1)	YES		NULL	
+g_flagBadInstFlux	bit(1)	YES		NULL	
+g_flagBadCentroid	bit(1)	YES		NULL	
+g_flagBadShape	bit(1)	YES		NULL	
+r_psfFlux	double	YES		NULL	
+r_psfFluxSigma	double	YES		NULL	
+r_apFlux	double	YES		NULL	
+r_apFluxSigma	double	YES		NULL	
+r_modelFlux	double	YES		NULL	
+r_modelFluxSigma	double	YES		NULL	
+r_instFlux	double	YES		NULL	
+r_instFluxSigma	double	YES		NULL	
+r_apCorrection	double	YES		NULL	
+r_apCorrectionSigma	double	YES		NULL	
+r_shapeIx	double	YES		NULL	
+r_shapeIy	double	YES		NULL	
+r_shapeIxVar	double	YES		NULL	
+r_shapeIyVar	double	YES		NULL	
+r_shapeIxIyCov	double	YES		NULL	
+r_shapeIxx	double	YES		NULL	
+r_shapeIyy	double	YES		NULL	
+r_shapeIxy	double	YES		NULL	
+r_shapeIxxVar	double	YES		NULL	
+r_shapeIyyVar	double	YES		NULL	
+r_shapeIxyVar	double	YES		NULL	
+r_shapeIxxIyyCov	double	YES		NULL	
+r_shapeIxxIxyCov	double	YES		NULL	
+r_shapeIyyIxyCov	double	YES		NULL	
+r_extendedness	double	YES		NULL	
+r_flagNegative	bit(1)	YES		NULL	
+r_flagBadMeasCentroid	bit(1)	YES		NULL	
+r_flagPixEdge	bit(1)	YES		NULL	
+r_flagPixInterpAny	bit(1)	YES		NULL	
+r_flagPixInterpCen	bit(1)	YES		NULL	
+r_flagPixSaturAny	bit(1)	YES		NULL	
+r_flagPixSaturCen	bit(1)	YES		NULL	
+r_flagBadPsfFlux	bit(1)	YES		NULL	
+r_flagBadApFlux	bit(1)	YES		NULL	
+r_flagBadModelFlux	bit(1)	YES		NULL	
+r_flagBadInstFlux	bit(1)	YES		NULL	
+r_flagBadCentroid	bit(1)	YES		NULL	
+r_flagBadShape	bit(1)	YES		NULL	
+i_psfFlux	double	YES		NULL	
+i_psfFluxSigma	double	YES		NULL	
+i_apFlux	double	YES		NULL	
+i_apFluxSigma	double	YES		NULL	
+i_modelFlux	double	YES		NULL	
+i_modelFluxSigma	double	YES		NULL	
+i_instFlux	double	YES		NULL	
+i_instFluxSigma	double	YES		NULL	
+i_apCorrection	double	YES		NULL	
+i_apCorrectionSigma	double	YES		NULL	
+i_shapeIx	double	YES		NULL	
+i_shapeIy	double	YES		NULL	
+i_shapeIxVar	double	YES		NULL	
+i_shapeIyVar	double	YES		NULL	
+i_shapeIxIyCov	double	YES		NULL	
+i_shapeIxx	double	YES		NULL	
+i_shapeIyy	double	YES		NULL	
+i_shapeIxy	double	YES		NULL	
+i_shapeIxxVar	double	YES		NULL	
+i_shapeIyyVar	double	YES		NULL	
+i_shapeIxyVar	double	YES		NULL	
+i_shapeIxxIyyCov	double	YES		NULL	
+i_shapeIxxIxyCov	double	YES		NULL	
+i_shapeIyyIxyCov	double	YES		NULL	
+i_extendedness	double	YES		NULL	
+i_flagNegative	bit(1)	YES		NULL	
+i_flagBadMeasCentroid	bit(1)	YES		NULL	
+i_flagPixEdge	bit(1)	YES		NULL	
+i_flagPixInterpAny	bit(1)	YES		NULL	
+i_flagPixInterpCen	bit(1)	YES		NULL	
+i_flagPixSaturAny	bit(1)	YES		NULL	
+i_flagPixSaturCen	bit(1)	YES		NULL	
+i_flagBadPsfFlux	bit(1)	YES		NULL	
+i_flagBadApFlux	bit(1)	YES		NULL	
+i_flagBadModelFlux	bit(1)	YES		NULL	
+i_flagBadInstFlux	bit(1)	YES		NULL	
+i_flagBadCentroid	bit(1)	YES		NULL	
+i_flagBadShape	bit(1)	YES		NULL	
+z_psfFlux	double	YES		NULL	
+z_psfFluxSigma	double	YES		NULL	
+z_apFlux	double	YES		NULL	
+z_apFluxSigma	double	YES		NULL	
+z_modelFlux	double	YES		NULL	
+z_modelFluxSigma	double	YES		NULL	
+z_instFlux	double	YES		NULL	
+z_instFluxSigma	double	YES		NULL	
+z_apCorrection	double	YES		NULL	
+z_apCorrectionSigma	double	YES		NULL	
+z_shapeIx	double	YES		NULL	
+z_shapeIy	double	YES		NULL	
+z_shapeIxVar	double	YES		NULL	
+z_shapeIyVar	double	YES		NULL	
+z_shapeIxIyCov	double	YES		NULL	
+z_shapeIxx	double	YES		NULL	
+z_shapeIyy	double	YES		NULL	
+z_shapeIxy	double	YES		NULL	
+z_shapeIxxVar	double	YES		NULL	
+z_shapeIyyVar	double	YES		NULL	
+z_shapeIxyVar	double	YES		NULL	
+z_shapeIxxIyyCov	double	YES		NULL	
+z_shapeIxxIxyCov	double	YES		NULL	
+z_shapeIyyIxyCov	double	YES		NULL	
+z_extendedness	double	YES		NULL	
+z_flagNegative	bit(1)	YES		NULL	
+z_flagBadMeasCentroid	bit(1)	YES		NULL	
+z_flagPixEdge	bit(1)	YES		NULL	
+z_flagPixInterpAny	bit(1)	YES		NULL	
+z_flagPixInterpCen	bit(1)	YES		NULL	
+z_flagPixSaturAny	bit(1)	YES		NULL	
+z_flagPixSaturCen	bit(1)	YES		NULL	
+z_flagBadPsfFlux	bit(1)	YES		NULL	
+z_flagBadApFlux	bit(1)	YES		NULL	
+z_flagBadModelFlux	bit(1)	YES		NULL	
+z_flagBadInstFlux	bit(1)	YES		NULL	
+z_flagBadCentroid	bit(1)	YES		NULL	
+z_flagBadShape	bit(1)	YES		NULL	
+y_psfFlux	double	YES		NULL	
+y_psfFluxSigma	double	YES		NULL	
+y_apFlux	double	YES		NULL	
+y_apFluxSigma	double	YES		NULL	
+y_modelFlux	double	YES		NULL	
+y_modelFluxSigma	double	YES		NULL	
+y_instFlux	double	YES		NULL	
+y_instFluxSigma	double	YES		NULL	
+y_apCorrection	double	YES		NULL	
+y_apCorrectionSigma	double	YES		NULL	
+y_shapeIx	double	YES		NULL	
+y_shapeIy	double	YES		NULL	
+y_shapeIxVar	double	YES		NULL	
+y_shapeIyVar	double	YES		NULL	
+y_shapeIxIyCov	double	YES		NULL	
+y_shapeIxx	double	YES		NULL	
+y_shapeIyy	double	YES		NULL	
+y_shapeIxy	double	YES		NULL	
+y_shapeIxxVar	double	YES		NULL	
+y_shapeIyyVar	double	YES		NULL	
+y_shapeIxyVar	double	YES		NULL	
+y_shapeIxxIyyCov	double	YES		NULL	
+y_shapeIxxIxyCov	double	YES		NULL	
+y_shapeIyyIxyCov	double	YES		NULL	
+y_extendedness	double	YES		NULL	
+y_flagNegative	bit(1)	YES		NULL	
+y_flagBadMeasCentroid	bit(1)	YES		NULL	
+y_flagPixEdge	bit(1)	YES		NULL	
+y_flagPixInterpAny	bit(1)	YES		NULL	
+y_flagPixInterpCen	bit(1)	YES		NULL	
+y_flagPixSaturAny	bit(1)	YES		NULL	
+y_flagPixSaturCen	bit(1)	YES		NULL	
+y_flagBadPsfFlux	bit(1)	YES		NULL	
+y_flagBadApFlux	bit(1)	YES		NULL	
+y_flagBadModelFlux	bit(1)	YES		NULL	
+y_flagBadInstFlux	bit(1)	YES		NULL	
+y_flagBadCentroid	bit(1)	YES		NULL	
+y_flagBadShape	bit(1)	YES		NULL	
+Execution time: 0.114890813828 sec
+Date: 2017-05-09_11:45:16
+
+Trivial query that retrieves one row, using index
+
+Query: SELECT ra, decl, raVar, declVar, radeclCov, u_psfFlux, u_psfFluxSigma, u_apFlux FROM Object WHERE deepSourceId = 2322920177140010;
+Date: 2017-05-09_11:45:19
+27.176651488371004	-86.13715725056315	0.01929598396731061	0.03161032493285156	0.000000001413441980301263	8.046328375258778e-30	1.0743266674953849e-30	7.878938308644324e-30
+Execution time: 50.2845079899 sec
+Date: 2017-05-09_11:46:09
+
+Query: SELECT ra, decl, raVar, declVar, radeclCov, u_psfFlux, u_psfFluxSigma, u_apFlux FROM Object WHERE deepSourceId = 2322920177142607;
+Date: 2017-05-09_11:46:10
+29.308806347275485	-86.30884046118973	NULL	NULL	NULL	5.380424505172824e-30	1.1164357311914638e-30	1.2004696337174369e-29
+Execution time: 0.15642285347 sec
+Date: 2017-05-09_11:46:11
+
+Spatially restricted query, small area of sky, should return small number of rows (say <100)
+
+Query: SELECT ra, decl FROM Object WHERE qserv_areaspec_box(0.95, 19.171, 1.0, 19.175);
+Date: 2017-05-09_11:46:14
+0.9521559341042976	19.173964491029935
+0.951022182881938	19.17440185508776
+0.9798797299320352	19.17212862033516
+0.9785317489483217	19.173622354719008
+0.9752774036245712	19.171708259398905
+0.9656595537025011	19.17324023763276
+0.9607657701118976	19.172832524427207
+0.9560408103812243	19.17488766750094
+0.9543893851927872	19.17158370469968
+0.9709537704624851	19.173296032475477
+0.9889958422614232	19.17292453729496
+0.9874840317553404	19.17443846184277
+0.9905990732898624	19.174821826810728
+0.9893730979504115	19.174175912529694
+0.9950627813919136	19.172605812996185
+0.9935849273223637	19.17469402309505
+0.9940985369263113	19.17142537761799
+0.9979425703122962	19.17497968231992
+0.9876026540040531	19.17433336639365
+0.9889820918881981	19.172931172364905
+Execution time: 0.90532541275 sec
+Date: 2017-05-09_11:46:16
+
+NEAR NEIGHBOR
+-------------
+Query: select count(*) from Object o1, Object o2 where qserv_areaspec_box(90.299197, -66.468216, 90.962526, -65.412851) and scisql_angSep(o1.ra, o1.decl, o2.ra, o2.decl) < 0.015;
+Date: 2017-05-09_11:46:19
+819659
+Execution time: 16.6779475212 sec
+Date: 2017-05-09_11:46:36
+
+Query: select o1.deepSourceId as id1, o2.deepSourceId as id2, o1.ra, o1.decl, scisql_angSep(o1.ra, o1.decl, o2.ra, o2.decl) as dist from Object o1, Object o2 where qserv_areaspec_box(89.299197, -66.468216, 89.312526, -66.452851) and scisql_angSep(o1.ra, o1.decl, o2.ra, o2.decl) < 0.015 ORDER BY id1;
+Date: 2017-05-09_11:46:36
+2348586901704290	2348586901704290	89.3102445404136	-66.46699286883998	0
+2348586901704290	2348586901704385	89.3102445404136	-66.46699286883998	0.010690681718123516
+2348586901704290	2348586901704373	89.3102445404136	-66.46699286883998	0.009481309069075836
+2348586901704290	2348586901704351	89.3102445404136	-66.46699286883998	0.008697902752208091
+2348586901704290	2348586901704406	89.3102445404136	-66.46699286883998	0.012415902426988352
+2348586901704290	2348586901704309	89.3102445404136	-66.46699286883998	0.00453261143433772
+2348586901704309	2348586901704373	89.30100561387803	-66.46435939327071	0.007345944973224451
+2348586901704309	2348586901704309	89.30100561387803	-66.46435939327071	0
+2348586901704309	2348586901704351	89.30100561387803	-66.46435939327071	0.005070298705431532
+2348586901704309	2348586901704290	89.30100561387803	-66.46435939327071	0.00453261143433772
+2348586901704309	2348586901704406	89.30100561387803	-66.46435939327071	0.009745582197352734
+2348586901704309	2348586901704385	89.30100561387803	-66.46435939327071	0.007946916807269477
+2348586901704351	2348586901704373	89.30006680906477	-66.45930297524897	0.0035987367686755646
+2348586901704351	2348586901704290	89.30006680906477	-66.45930297524897	0.008697902752208091
+2348586901704351	2348586901704406	89.30006680906477	-66.45930297524897	0.00497245478852923
+2348586901704351	2348586901704351	89.30006680906477	-66.45930297524897	0
+2348586901704351	2348586901704385	89.30006680906477	-66.45930297524897	0.0033000711955383133
+2348586901704351	2348586901704309	89.30006680906477	-66.45930297524897	0.005070298705431532
+2348586901704373	2348586901704385	89.30794423786736	-66.45755616727446	0.0016779515660582571
+2348586901704373	2348586901704351	89.30794423786736	-66.45755616727446	0.0035987367686755646
+2348586901704373	2348586901704373	89.30794423786736	-66.45755616727446	0
+2348586901704373	2348586901704290	89.30794423786736	-66.45755616727446	0.009481309069075836
+2348586901704373	2348586901704309	89.30794423786736	-66.45755616727446	0.007345944973224451
+2348586901704373	2348586901704406	89.30794423786736	-66.45755616727446	0.0030316689040220373
+2348586901704385	2348586901704373	89.30459584961086	-66.45654290505945	0.0016779515660582571
+2348586901704385	2348586901704385	89.30459584961086	-66.45654290505945	0
+2348586901704385	2348586901704309	89.30459584961086	-66.45654290505945	0.007946916807269477
+2348586901704385	2348586901704406	89.30459584961086	-66.45654290505945	0.001802886329649992
+2348586901704385	2348586901704290	89.30459584961086	-66.45654290505945	0.010690681718123516
+2348586901704385	2348586901704351	89.30459584961086	-66.45654290505945	0.0033000711955383133
+2348586901704406	2348586901704351	89.30507152161081	-66.45475005961501	0.00497245478852923
+2348586901704406	2348586901704406	89.30507152161081	-66.45475005961501	0
+2348586901704406	2348586901704385	89.30507152161081	-66.45475005961501	0.001802886329649992
+2348586901704406	2348586901704373	89.30507152161081	-66.45475005961501	0.0030316689040220373
+2348586901704406	2348586901704309	89.30507152161081	-66.45475005961501	0.009745582197352734
+2348586901704406	2348586901704290	89.30507152161081	-66.45475005961501	0.012415902426988352
+Execution time: 0.602174282074 sec
+Date: 2017-05-09_11:46:37
+
