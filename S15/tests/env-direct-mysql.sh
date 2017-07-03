@@ -35,4 +35,3 @@ function mysql_query {
         sleep "$sleep_delay"
     fi
 }
-
