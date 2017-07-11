@@ -1,0 +1,9 @@
+# SHORT-RUNNING QUERIES
+# ---------------------
+
+# Describe object table
+#[describe]
+#query=Describe Object
+#query-results-file=out/describe.csv
+#count=1
+
