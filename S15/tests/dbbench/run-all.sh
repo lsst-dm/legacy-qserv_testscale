@@ -3,7 +3,7 @@
 set -x
 set -e
 
-FILES=$(ls queries/1_*.ini)
+FILES=$(ls queries/*.ini)
 OUTDIR="queries/out"
 for f in $FILES 
 do
