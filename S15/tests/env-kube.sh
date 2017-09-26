@@ -1,3 +1,5 @@
+CLIENT_NODE=${CLIENT_NODE:?}
+
 if [ -z "$CLIENT_NODE" ]; then
     echo "ERROR: undefined \$CLIENT_NODE"
     exit 1
@@ -11,7 +13,7 @@ function mysql_query {
     sleep_delay="$2"
 
     SSH_CFG="$HOME/.lsst/qserv-cluster/ssh_config"
-	# ssh option for using configuration file
+    # ssh option for using configuration file
     if [ -r "$SSH_CFG" ]; then
         SSH_CFG_OPT="-F $SSH_CFG"
     else
