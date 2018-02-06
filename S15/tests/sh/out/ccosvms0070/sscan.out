@@ -1,0 +1,45 @@
+SHARED SCANS
+------------
+Two scans on Object. Startup was staggered.
+
+Query: SELECT COUNT(*) FROM Object WHERE y_instFlux > 5
+Date: 2018-02-06_17:02:19
+Date: 2018-02-06_17:02:19
+
+bash: /qserv/stack/loadLSST.bash: No such file or directory
+Query: SELECT MIN(ra), MAX(ra) FROM Object WHERE decl > 3
+Date: 2018-02-06_17:02:24
+Date: 2018-02-06_17:02:24
+
+bash: /qserv/stack/loadLSST.bash: No such file or directory
+Five scans on Object. Startup was staggered.
+
+Query: SELECT MIN(ra), MAX(ra) FROM Object WHERE decl > 3
+Date: 2018-02-06_17:02:24
+Date: 2018-02-06_17:02:24
+
+bash: /qserv/stack/loadLSST.bash: No such file or directory
+Query: SELECT MIN(ra), MAX(ra) FROM Object WHERE decl > 3
+Date: 2018-02-06_17:02:30
+Date: 2018-02-06_17:02:30
+
+bash: /qserv/stack/loadLSST.bash: No such file or directory
+Query: SELECT COUNT(*) FROM Object WHERE y_instFlux > u_instFlux
+Date: 2018-02-06_17:02:35
+Date: 2018-02-06_17:02:35
+
+bash: /qserv/stack/loadLSST.bash: No such file or directory
+Query: SELECT COUNT(*) FROM Object WHERE y_instFlux > 5
+Date: 2018-02-06_17:02:41
+Date: 2018-02-06_17:02:41
+
+bash: /qserv/stack/loadLSST.bash: No such file or directory
+Five scans on Object, without staggering.
+
+Query: SELECT COUNT(*) FROM Object WHERE y_instFlux > 5
+Date: 2018-02-06_17:02:45
+Date: 2018-02-06_17:02:45
+
+bash: /qserv/stack/loadLSST.bash: No such file or directory
+Five scans: four on Object, one on Source
+
