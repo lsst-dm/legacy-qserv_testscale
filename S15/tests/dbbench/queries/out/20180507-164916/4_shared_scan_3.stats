@@ -1,0 +1,5 @@
+shared_scan_3_count_object_groupby,1944,299751452,7737
+shared_scan_3_count_object,364,304058328,1
+shared_scan_3_minmax_object,1757,310510164,1
+shared_scan_3_count_object,304058832,313843120,1
+shared_scan_3_count_object,617902266,303302323,1
